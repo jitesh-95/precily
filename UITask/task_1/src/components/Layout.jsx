@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 
 const Layout = ({ customWidth, customHeight, customMinimumSize }) => {
@@ -53,16 +53,14 @@ const Layout = ({ customWidth, customHeight, customMinimumSize }) => {
       window.removeEventListener("mousemove", resize);
     }
   };
-  // console.log(currentHeight);
+
   return (
     <Box
-      id="container"
       boxShadow="base"
-      //   m="auto"
-      minH={`${currentHeight}px`}
+      m="auto"
+      h={`${currentHeight}px`}
       w={`${currentWidth}px`}
       position="relative"
-      boxSizing="border-box"
       top="0px"
       left="0px"
     >
@@ -110,6 +108,40 @@ const Layout = ({ customWidth, customHeight, customMinimumSize }) => {
         cursor="e-resize"
         onMouseDown={handleMouseDown}
       ></Box>
+
+      {/* content  */}
+      <Box m="5px" bg="gray.200">
+        <Box>
+          <Image
+            h={`${+currentHeight - 66}px`}
+            w={`${currentWidth}px`}
+            objectFit="cover"
+            userSelect="none"
+            src="https://images.unsplash.com/photo-1661961112134-fbce0fdf3d99?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
+            alt="image"
+          />
+          <Text
+            p="2px 5px"
+            overflow="hidden"
+            textOverflow="ellipsis"
+            whiteSpace="nowrap"
+            fontWeight={600}
+            userSelect="none"
+            maxW={`${+currentWidth - 20}px`}
+          >
+            something
+          </Text>
+        </Box>
+
+        <Flex justify="space-around">
+          <Button size="sm" colorScheme="blue">
+            Add
+          </Button>
+          <Button size="sm" colorScheme="orange">
+            Update
+          </Button>
+        </Flex>
+      </Box>
     </Box>
   );
 };

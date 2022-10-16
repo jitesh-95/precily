@@ -4,9 +4,9 @@ import Layout from "./Layout";
 
 const BottomComponent = () => {
   return (
-    <Box p="2rem">
+    <Box m="2rem" boxSizing="border-box">
       <Layout
-        customWidth={"1400"}
+        customWidth={"1200"}
         customHeight={"600"}
         customMinimumSize={100}
       />
